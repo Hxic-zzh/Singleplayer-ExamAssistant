@@ -21,7 +21,7 @@
 ### 1. 消息公告页
 - 展示欢迎信息、公告、轮播图片等内容
 
-![image](https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/610ad71b7b2d4f2efa777f25aa1e8abaee175a81/githubPng/1.png){:width="600px"}
+<img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/610ad71b7b2d4f2efa777f25aa1e8abaee175a81/githubPng/1.png" width="500">
 
 ### 2. 上机考试
 - 进入考试主界面，自动加载题库
