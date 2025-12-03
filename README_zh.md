@@ -55,7 +55,11 @@
 ## 详细使用方法
 
 ### 1. 首先了解如何写题库
-- 
+- 在 软件文件：`data/excample/` 目录下 你会看见8个XLSX文件，这8个文件是“标准题库示例文件”，是我预先设置好的格式文件
+- <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/1116ae326f0b9611f8235f366f8c666a9f50552d/githubPng/7.png" width="500">
+
+
+
 
 ---
 
