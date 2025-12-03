@@ -30,20 +30,25 @@
 - 支持题目导航、分页、倒计时等功能
 - 答题自动保存，支持交卷与自动判分
 - 交卷后自动生成错题集
+- <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/8357210025b07f5289e19985edf9aa235077cb18/githubPng/2.png" width="500">
+- <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/8357210025b07f5289e19985edf9aa235077cb18/githubPng/3.png" width="500">
 
 ### 3. 题库提取与管理
 - 支持从 Excel 格式批量导入题库
 - 支持题库名称编辑、保存
 - 获取的题库需要手动导出
 - 可预览题库内容，支持清空当前编辑进度
+- <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/8357210025b07f5289e19985edf9aa235077cb18/githubPng/4.png" width="500">
 
 ### 4. 成绩与错题管理
 - 自动保存每次考试成绩，支持成绩列表浏览
 - 支持错题集生成与回顾，便于查漏补缺
+- <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/8357210025b07f5289e19985edf9aa235077cb18/githubPng/5.png" width="500">
 
 ### 5. 设置中心
 - 支持多语言切换，目前只支持中英切换
 - 支持主题切换、界面自定义等功能
+- <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/8357210025b07f5289e19985edf9aa235077cb18/githubPng/6.png" width="500">
 
 ---
 
