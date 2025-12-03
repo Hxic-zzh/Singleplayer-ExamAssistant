@@ -83,6 +83,8 @@
   9. 然后要使用该题库上机，就将这个ZIP放在 `/data/Question` 目录下面，注意不要出现相同的ZIP文件名，bro
   10. 特别注意！！！部分XLSX读写软件（中国用户的WPS，以及外国游人的office）在写年月日时候，xlsx文件会识别成 例如“1900/0/0”的形式，会导致Go系统识别失败乱码，注意在生成的ZIP文件中，自行定位Json文件中，该题的位置，然后手动修改答案和题干，实在抱歉
 
+  <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/188aed76e8a186c4e56574ea6d23b8270fcc5df7/githubPng/11.gif" width="200">
+
 ### 3. 开始上机
 - 在 主界面，右侧的列表中 “Exam” 界面 中完成我们的任务
   1. 在下拉菜单中选择你的题库
