@@ -59,6 +59,11 @@
 - <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/1116ae326f0b9611f8235f366f8c666a9f50552d/githubPng/7.png" width="500">
 - [📖 XLSX读写手册](https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/5427085906d8a98d54ed0f4b19e3d4113ec5ff62/XLSXrules.md) ↗
 
+### 2. 了解怎么创建题库压缩包，供上机使用
+- 在 主界面，右侧的列表中 “Extact” 界面 中完成我们的任务
+  1. 添加主文件，包括 `SC` `MC` `FL` `SCIMG` `MCIMG` `FLIMG` 点击“Open main file”上传
+  > 注意不要多传 
+
 
 
 ---
