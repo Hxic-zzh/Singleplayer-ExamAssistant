@@ -1,7 +1,9 @@
 # Excel 文件数据结构文档
 > 一定要看完口牙
+
 > English is below, please check it out
-> <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/bec8e23c2bd8d10a34c774f222072644533a0f66/githubPng/8.png" width="400">
+
+> <img src="https://github.com/Hxic-zzh/Singleplayer-ExamAssistant/blob/bec8e23c2bd8d10a34c774f222072644533a0f66/githubPng/8.png" width="200">
 
 ## 📁 示例文件文件列表
 
