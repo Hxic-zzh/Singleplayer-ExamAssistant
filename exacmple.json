@@ -1,0 +1,1097 @@
+{
+  "errors": [],
+  "images": [
+    {
+      "filename": "test1.png",
+      "path": "add/test1.png"
+    },
+    {
+      "filename": "test10.jpg",
+      "path": "add/test10.jpg"
+    },
+    {
+      "filename": "test11.jpg",
+      "path": "add/test11.jpg"
+    },
+    {
+      "filename": "test12.jpg",
+      "path": "add/test12.jpg"
+    },
+    {
+      "filename": "test13.jpg",
+      "path": "add/test13.jpg"
+    },
+    {
+      "filename": "test14.jpg",
+      "path": "add/test14.jpg"
+    },
+    {
+      "filename": "test15.webp",
+      "path": "add/test15.webp"
+    },
+    {
+      "filename": "test2.webp",
+      "path": "add/test2.webp"
+    },
+    {
+      "filename": "test3.png",
+      "path": "add/test3.png"
+    },
+    {
+      "filename": "test4.webp",
+      "path": "add/test4.webp"
+    },
+    {
+      "filename": "test5.jpg",
+      "path": "add/test5.jpg"
+    },
+    {
+      "filename": "test6.jpg",
+      "path": "add/test6.jpg"
+    },
+    {
+      "filename": "test7.webp",
+      "path": "add/test7.webp"
+    },
+    {
+      "filename": "test8.png",
+      "path": "add/test8.png"
+    },
+    {
+      "filename": "test9.jpg",
+      "path": "add/test9.jpg"
+    },
+    {
+      "filename": "testF1.png",
+      "path": "add/testF1.png"
+    },
+    {
+      "filename": "testF10.webp",
+      "path": "add/testF10.webp"
+    },
+    {
+      "filename": "testF11.webp",
+      "path": "add/testF11.webp"
+    },
+    {
+      "filename": "testF12.webp",
+      "path": "add/testF12.webp"
+    },
+    {
+      "filename": "testF2.png",
+      "path": "add/testF2.png"
+    },
+    {
+      "filename": "testF3.png",
+      "path": "add/testF3.png"
+    },
+    {
+      "filename": "testF4.png",
+      "path": "add/testF4.png"
+    },
+    {
+      "filename": "testF5.png",
+      "path": "add/testF5.png"
+    },
+    {
+      "filename": "testF6.png",
+      "path": "add/testF6.png"
+    },
+    {
+      "filename": "testF7.png",
+      "path": "add/testF7.png"
+    },
+    {
+      "filename": "testF8.png",
+      "path": "add/testF8.png"
+    },
+    {
+      "filename": "testF9.png",
+      "path": "add/testF9.png"
+    }
+  ],
+  "metadata": {
+    "documentReading": 2,
+    "fillBlank": 17,
+    "multipleChoice": 10,
+    "singleChoice": 12,
+    "totalImages": 27,
+    "totalQuestions": 41
+  },
+  "name": "test",
+  "questions": {
+    "documentReading": [
+      {
+        "id": "1",
+        "type": "DR",
+        "enabled": true,
+        "question": "材料阅读题",
+        "images": null,
+        "materials": [
+          "阅读下面一段材料，仔细理解然后从供选择的几种论述中选取正确的一项。（3分） 资料：网络隔离-网络安全新技术 面对新型网络攻击手段的出现和高安全度网络对安全的特殊需求，全新安全防护防范理念的网络安全技术。\"网络隔离技术\"应运而生。网络隔离技术的目的是保证隔离有害攻击，在可信网络之外和保证可信网络内部信息不外泄前提下，完成网间数据安全交换。网络隔离技术是在原有安全技术的基础上发展起来的，它弥补了原来安全技术的不足，突出了自己的优势。网络隔离，英文名为Network Isolation，主要是指把两个或两个以上可路由网络（如TCP/IP）通过不可路由协议（如IPX/SPX、NETBEUI等）进行数据交换而达到隔离目的。由于其原理主要是采用了不同协议，因此一般也叫协议隔离（Protocol Isolation）。1997年，信息安全专家Mark Joseph Edwards在她编写的《Understanding Network Security》一书中，就对协议隔离进行了归纳。在书中她明确地指出了协议隔离和防火墙不属于同类产品。"
+        ],
+        "hooks": [
+          "SC.A1",
+          "SCIMG.B1",
+          "MC.C1",
+          "MCIMG.D1",
+          "FL.E1",
+          "FLIMG.F1"
+        ]
+      },
+      {
+        "id": "2",
+        "type": "DR",
+        "enabled": true,
+        "question": "材料阅读题",
+        "images": null,
+        "materials": [
+          "近年来，人工智能技术的飞速发展引发了社会对就业市场的广泛关注。乐观者认为，AI将像历史上的蒸汽机和电力一样，最终创造更多新的、更高层次的就业岗位，同时把人类从重复性劳动中解放出来，提升整体生产效率。例如，AI维护员、数据标注师、算法伦理顾问等新兴职业已开始出现。\n\n然而，悲观者则指出，此次技术革命的影响可能更为迅猛和深刻。许多中等技能的程序化工作（如会计、行政、初级分析）最容易被AI替代，而高技能的创造性工作（如科研、艺术）和低技能的灵活体力工作（如护理、维修）短期内受影响较小。这可能导致就业市场“空心化”，加剧社会不平等。\n\n专家普遍认为，应对此挑战的关键在于教育和职业培训体系的快速适应。未来劳动者需要具备“AI协作能力”，即善于利用AI作为工具来增强自身创造力、判断力和解决复杂问题的能力。此外，社会保障和政策调整也需要与时俱进，以平稳度过转型期。"
+        ],
+        "hooks": [
+          "SC.A8",
+          "SC.A9",
+          "SC.A10",
+          "FL.E14",
+          "FL.E15"
+        ]
+      }
+    ],
+    "fillBlank": [
+      {
+        "id": "1",
+        "type": "FLIMG",
+        "enabled": true,
+        "question": "图中1，2，3分别是什么意思，(%___%)，(%___%)，(%___%)",
+        "images": [
+          "add/testF8.png"
+        ],
+        "template": "图中1，2，3分别是什么意思，(%___%)，(%___%)，(%___%)",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "螺杆根径"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "螺杆长度"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "间隙"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "2",
+        "type": "FLIMG",
+        "enabled": true,
+        "question": "图中1，2分别是什么，(%___%)，(%___%)",
+        "images": [
+          "add/testF9.png"
+        ],
+        "template": "图中1，2分别是什么，(%___%)，(%___%)",
+        "blankCount": 2,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "机头"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "吹塑模具"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "3",
+        "type": "FLIMG",
+        "enabled": true,
+        "question": "网络隔离技术是在原有安全技术基础上发展起来的，它通过(%___%)的方式弥补了传统安全技术的不足。该技术不仅能够(%___%)，还能确保在数据交换过程中(%___%)",
+        "images": [
+          "add/testF12.webp"
+        ],
+        "hook": "FLIMG.F1",
+        "template": "网络隔离技术是在原有安全技术基础上发展起来的，它通过(%___%)的方式弥补了传统安全技术的不足。该技术不仅能够(%___%)，还能确保在数据交换过程中(%___%)",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "协议隔离"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "隔离有害攻击"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "信息不外泄"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "1",
+        "type": "FL",
+        "enabled": true,
+        "question": "新文化运动兴起的标志是陈独秀在上海创办(%___%)杂志。",
+        "images": null,
+        "template": "新文化运动兴起的标志是陈独秀在上海创办(%___%)杂志。",
+        "blankCount": 1,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "《新青年》"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "2",
+        "type": "FL",
+        "enabled": true,
+        "question": "中国古代四大发明是(%___%)、(%___%)、(%___%)和(%___%)。",
+        "images": null,
+        "template": "中国古代四大发明是(%___%)、(%___%)、(%___%)和(%___%)。",
+        "blankCount": 4,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "造纸术"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "印刷术"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "指南针"
+            ]
+          },
+          {
+            "blankIndex": 4,
+            "answers": [
+              "火药"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "3",
+        "type": "FL",
+        "enabled": true,
+        "question": "《(%___%)》是曹雪芹创作的古典小说，与《(%___%)》、《(%___%)》、《(%___%)》并称为中国古典四大名著。",
+        "images": [
+          "add/test11.jpg",
+          "add/test12.jpg",
+          "add/test13.jpg",
+          "add/test14.jpg"
+        ],
+        "template": "《(%___%)》是曹雪芹创作的古典小说，与《(%___%)》、《(%___%)》、《(%___%)》并称为中国古典四大名著。",
+        "blankCount": 4,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "红楼梦"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "三国演义"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "水浒传"
+            ]
+          },
+          {
+            "blankIndex": 4,
+            "answers": [
+              "西游记"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "4",
+        "type": "FL",
+        "enabled": true,
+        "question": "人体必需的六大营养素是蛋白质、脂肪、(%___%)、维生素、(%___%)和水。",
+        "images": null,
+        "template": "人体必需的六大营养素是蛋白质、脂肪、(%___%)、维生素、(%___%)和水。",
+        "blankCount": 2,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "碳水化合物"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "矿物质"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "5",
+        "type": "FL",
+        "enabled": true,
+        "question": "世界上面积最大的洋是(%___%)，最长的河流是(%___%)，最高的山峰是(%___%)。",
+        "images": null,
+        "template": "世界上面积最大的洋是(%___%)，最长的河流是(%___%)，最高的山峰是(%___%)。",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "太平洋"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "尼罗河"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "珠穆朗玛峰"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "6",
+        "type": "FL",
+        "enabled": true,
+        "question": "莎士比亚的四大悲剧是《(%___%)》、《(%___%)》、《(%___%)》和《(%___%)》。",
+        "images": null,
+        "template": "莎士比亚的四大悲剧是《(%___%)》、《(%___%)》、《(%___%)》和《(%___%)》。",
+        "blankCount": 4,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "哈姆雷特"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "奥赛罗"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "李尔王"
+            ]
+          },
+          {
+            "blankIndex": 4,
+            "answers": [
+              "麦克白"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "7",
+        "type": "FL",
+        "enabled": true,
+        "question": "化学元素周期表中，原子序数为1的元素是(%___%)，符号为H；原子序数为8的元素是(%___%)，符号为O。",
+        "images": null,
+        "template": "化学元素周期表中，原子序数为1的元素是(%___%)，符号为H；原子序数为8的元素是(%___%)，符号为O。",
+        "blankCount": 2,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "氢"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "氧"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "8",
+        "type": "FL",
+        "enabled": true,
+        "question": "计算机硬件系统主要包括(%___%)、(%___%)、(%___%)、输入设备和输出设备五大部分。",
+        "images": null,
+        "template": "计算机硬件系统主要包括(%___%)、(%___%)、(%___%)、输入设备和输出设备五大部分。",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "运算器"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "控制器"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "存储器"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "9",
+        "type": "FL",
+        "enabled": true,
+        "question": "常见的编程语言包括Java、Python和(%___%)。",
+        "images": null,
+        "template": "常见的编程语言包括Java、Python和(%___%)。",
+        "blankCount": 1,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "C++",
+              "JavaScript",
+              "javascript"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "10",
+        "type": "FL",
+        "enabled": true,
+        "question": "著名的印象派画家代表有(%___%)",
+        "images": null,
+        "template": "著名的印象派画家代表有(%___%)",
+        "blankCount": 1,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "莫奈",
+              "雷诺阿",
+              "德加",
+              "毕沙罗"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "11",
+        "type": "FL",
+        "enabled": true,
+        "question": "人体必需的氨基酸有赖氨酸，(%___%)，(%___%)，(%___%)",
+        "images": null,
+        "template": "人体必需的氨基酸有赖氨酸，(%___%)，(%___%)，(%___%)",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "(x%x)",
+              "色氨酸",
+              "苯丙氨酸",
+              "蛋氨酸",
+              "苏氨酸",
+              "亮氨酸",
+              "异亮氨酸",
+              "缬氨酸"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "(x%x)",
+              "色氨酸",
+              "苯丙氨酸",
+              "蛋氨酸",
+              "苏氨酸",
+              "亮氨酸",
+              "异亮氨酸",
+              "缬氨酸"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "(x%x)",
+              "色氨酸",
+              "苯丙氨酸",
+              "蛋氨酸",
+              "苏氨酸",
+              "亮氨酸",
+              "异亮氨酸",
+              "缬氨酸"
+            ]
+          }
+        ],
+        "hasExtra": true,
+        "extraKey": "(x%x)"
+      },
+      {
+        "id": "12",
+        "type": "FL",
+        "enabled": true,
+        "question": "网络隔离技术是在原有安全技术的基础上发展起来的，它弥补了原有安全技术的不足。该技术的主要目的是在(%___%)和保证可信网络内部信息(%___%)的前提下，完成(%___%)。",
+        "images": null,
+        "hook": "FL.E1",
+        "template": "网络隔离技术是在原有安全技术的基础上发展起来的，它弥补了原有安全技术的不足。该技术的主要目的是在(%___%)和保证可信网络内部信息(%___%)的前提下，完成(%___%)。",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "隔离有害攻击"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "不外泄"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "网间数据安全交换"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "13",
+        "type": "FL",
+        "enabled": true,
+        "question": "面对人工智能带来的就业挑战，专家认为关键在于(%___%)和(%___%)体系的快速适应，以培养劳动者与AI协作的能力。",
+        "images": null,
+        "hook": "FL.E14",
+        "template": "面对人工智能带来的就业挑战，专家认为关键在于(%___%)和(%___%)体系的快速适应，以培养劳动者与AI协作的能力。",
+        "blankCount": 2,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "教育"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "职业培训"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "14",
+        "type": "FL",
+        "enabled": true,
+        "question": "悲观者认为，AI可能导致就业市场(%___%)，其特征是中等技能岗位减少，而(%___%)和(%___%)的岗位需求更为凸显。",
+        "images": null,
+        "hook": "FL.E15",
+        "template": "悲观者认为，AI可能导致就业市场(%___%)，其特征是中等技能岗位减少，而(%___%)和(%___%)的岗位需求更为凸显。",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "空心化"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "高技能创造性工作"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "低技能灵活体力工作"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      }
+    ],
+    "multipleChoice": [
+      {
+        "id": "13",
+        "type": "MCIMG",
+        "enabled": true,
+        "question": "上面四张图片，代表了哪四种加热方式？多选。",
+        "images": [
+          "add/testF3.png",
+          "add/testF4.png",
+          "add/testF5.png",
+          "add/testF6.png"
+        ],
+        "options": [
+          "热板加热",
+          "烘箱加热",
+          "红外加热",
+          "高频电场加热",
+          "超频电场加热"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "id": "14",
+        "type": "MCIMG",
+        "enabled": true,
+        "question": "上面图片中的1，2，3都是什么？多选。",
+        "images": [
+          "add/testF7.png"
+        ],
+        "options": [
+          "水槽冷却",
+          "冷却定型",
+          "料斗",
+          "加热器",
+          "水槽传动",
+          "料筒",
+          "机筒"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "15",
+        "type": "MCIMG",
+        "enabled": true,
+        "question": "关于网络隔离技术，以下哪些描述是正确的？",
+        "images": [
+          "add/testF11.webp"
+        ],
+        "hook": "MCIMG.D1",
+        "options": [
+          "网络隔离技术是为了应对新型网络攻击手段和高安全度网络需求而出现的",
+          "网络隔离技术的主要目的是在保证可信网络内部信息不外泄的前提下，完成网间数据安全交换",
+          "网络隔离技术完全替代了原有的所有安全技术",
+          "网络隔离技术主要通过不可路由协议（如IPX/SPX、NETBEUI等）进行数据交换",
+          "网络隔离技术与防火墙属于同类安全产品"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      {
+        "id": "1",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些城市是中国的直辖市？（3项正确）",
+        "images": [
+          "add/test4.webp"
+        ],
+        "options": [
+          "北京",
+          "上海",
+          "广州",
+          "天津",
+          "深圳",
+          "重庆"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      {
+        "id": "2",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于中国古代四大发明？（4项正确）",
+        "images": [
+          "add/test5.jpg",
+          "add/test6.jpg",
+          "add/test7.webp",
+          "add/test8.png",
+          "add/test9.jpg",
+          "add/test10.jpg"
+        ],
+        "options": [
+          "造纸术",
+          "印刷术",
+          "指南针",
+          "火药",
+          "瓷器",
+          "丝绸"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "id": "3",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于社会主义核心价值观在国家层面的价值目标？（3项正确）",
+        "images": null,
+        "options": [
+          "富强",
+          "民主",
+          "文明",
+          "和谐",
+          "平等",
+          "公正"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "4",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于中国共产党在延安时期开展的重要运动？（4项正确）",
+        "images": null,
+        "options": [
+          "整风运动",
+          "大生产运动",
+          "土地改革运动",
+          "精兵简政运动",
+          "文化大革命",
+          "改革开放"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "id": "5",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于毛泽东思想的活的灵魂？（3项正确）",
+        "images": null,
+        "options": [
+          "实事求是",
+          "群众路线",
+          "独立自主",
+          "武装斗争"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "6",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些会议是中国共产党历史上具有重大转折意义的会议？（5项正确）",
+        "images": null,
+        "options": [
+          "八七会议",
+          "遵义会议",
+          "中共七大",
+          "十一届三中全会",
+          "中共十五大",
+          "中共十九大"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "F"
+        ]
+      },
+      {
+        "id": "7",
+        "type": "MC",
+        "enabled": true,
+        "question": "关于网络隔离技术，以下哪些描述是正确的？",
+        "images": null,
+        "hook": "MC.C1",
+        "options": [
+          "网络隔离技术是为了应对新型网络攻击手段和高安全度网络需求而出现的",
+          "网络隔离技术的主要目的是在保证可信网络内部信息不外泄的前提下，完成网间数据安全交换",
+          "网络隔离技术完全替代了原有的所有安全技术",
+          "网络隔离技术主要通过不可路由协议（如IPX/SPX、NETBEUI等）进行数据交换",
+          "网络隔离技术与防火墙属于同类安全产品"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "D"
+        ]
+      }
+    ],
+    "singleChoice": [
+      {
+        "id": "14",
+        "type": "SCIMG",
+        "enabled": true,
+        "question": "这是一个“下动式热压机”，图片中的“1”是什么元件？从4个选项中选择答案，单选。",
+        "images": [
+          "add/testF1.png"
+        ],
+        "options": [
+          "垫片",
+          "固定垫板",
+          "固定垫片",
+          "活动垫板"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "15",
+        "type": "SCIMG",
+        "enabled": true,
+        "question": "这是一个“上动式热压机”，图片中的“1”是什么元件？从4个选项中选择答案，单选。",
+        "images": [
+          "add/testF2.png"
+        ],
+        "options": [
+          "基座",
+          "机座",
+          "机底",
+          "底座"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "16",
+        "type": "SCIMG",
+        "enabled": true,
+        "question": "网络隔离技术主要通过采用不同的网络协议来实现隔离效果，因此也被称为协议隔离。",
+        "images": [
+          "add/testF10.webp"
+        ],
+        "hook": "SCIMG.B1",
+        "options": [
+          "正确",
+          "错误"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "2",
+        "type": "SC",
+        "enabled": true,
+        "question": "新文化运动兴起的标志是陈独秀在上海创办的什么杂志？",
+        "images": [
+          "add/test1.png"
+        ],
+        "options": [
+          "《青年杂志》",
+          "《每周评论》",
+          "《新潮》"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "3",
+        "type": "SC",
+        "enabled": true,
+        "question": "五四运动的直接导火索是？",
+        "images": null,
+        "options": [
+          "袁世凯复辟帝制",
+          "巴黎和会上中国外交的失败",
+          "北洋政府镇压学生运动"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "4",
+        "type": "SC",
+        "enabled": true,
+        "question": "标志着中国新民主主义革命伟大开端的事件是？",
+        "images": null,
+        "options": [
+          "新文化运动",
+          "五四运动",
+          "中国共产党成立"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "5",
+        "type": "SC",
+        "enabled": true,
+        "question": "中国共产党第一次全国代表大会在哪里召开？",
+        "images": null,
+        "options": [
+          "北京",
+          "上海",
+          "广州",
+          "延安"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "6",
+        "type": "SC",
+        "enabled": true,
+        "question": "中华人民共和国成立的时间是？",
+        "images": [
+          "add/test2.webp",
+          "add/test3.png"
+        ],
+        "options": [
+          "\"1945年8月15日\"",
+          "\"1949年10月1日\"",
+          "\"1950年10月1日\"",
+          "\"1949年9月21日\"",
+          "\"1950年1月1日\""
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "7",
+        "type": "SC",
+        "enabled": true,
+        "question": "根据材料内容，网络隔离技术主要实现了什么功能？",
+        "images": [
+          "add/test15.webp"
+        ],
+        "hook": "SC.A1",
+        "options": [
+          "完全阻断网络间的所有数据交换",
+          "在隔离有害攻击的前提下完成网间数据安全交换",
+          "仅防止外部攻击，不考虑内部信息保护",
+          "主要依靠加密技术实现网络安全"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "8",
+        "type": "SC",
+        "enabled": true,
+        "question": "以下哪项最准确地概括了本文的中心论点？",
+        "images": null,
+        "hook": "SC.A8",
+        "options": [
+          "人工智能将导致大规模失业和社会动荡。",
+          "人工智能对就业的影响利弊并存，其最终结果取决于多方应对。",
+          "人工智能只会创造新的就业岗位，人类无需担忧。",
+          "低技能体力工作将首先被人工智能完全取代。"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "9",
+        "type": "SC",
+        "enabled": true,
+        "question": "根据材料，以下哪类工作在当前阶段被认为“最容易被AI替代”？",
+        "images": null,
+        "hook": "SC.A9",
+        "options": [
+          "艺术创作与科研工作。",
+          "护理和维修等灵活体力工作。",
+          "会计、行政等中等技能的程序化工作。",
+          "AI维护员和算法伦理顾问。"
+        ],
+        "answer": "C"
+      },
+      {
+        "id": "10",
+        "type": "SC",
+        "enabled": true,
+        "question": "材料中提到的“AI协作能力”不包括以下哪一项？",
+        "images": null,
+        "hook": "SC.A10",
+        "options": [
+          "利用AI工具增强自身创造力。",
+          "替代AI进行所有的决策和判断。",
+          "使用AI解决复杂问题。",
+          "将AI作为提升工作效率的工具。"
+        ],
+        "answer": "B"
+      }
+    ]
+  },
+  "version": "1.0"
+}

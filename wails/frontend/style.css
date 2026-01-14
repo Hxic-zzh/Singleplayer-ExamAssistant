@@ -1,0 +1,795 @@
+/* 公共样式 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: radial-gradient(circle at top left, #fdfbfb 0, #ebedee 40%, #e3f2fd 100%);
+    color: #333;
+}
+
+/* 顶部题型按钮条 */
+.type-bar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px 20px;
+    margin: 0 0 12px 0;
+    background: linear-gradient(120deg, rgba(144, 202, 249, 0.9), rgba(178, 223, 219, 0.9), rgba(255, 245, 204, 0.9));
+    background-size: 200% 200%;
+    animation: typebar-gradient-move 16s ease infinite;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.16);
+    border-radius: 999px;
+}
+
+@keyframes typebar-gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.type-left {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    flex: 0 1 auto;
+    justify-content: flex-start;
+}
+
+.type-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: auto;
+}
+
+/* 顶部按钮在炫彩背景上稍微减薄边框和阴影，看起来更轻盈 */
+.type-btn {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 统一“添加题卡”按钮样式：仅保留一份定义，兼顾顶部工具栏和整体风格 */
+.add-card-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 34px;
+    padding: 0 20px;
+    font-size: 14px;
+    margin: 0 0 0 24px; /* 与左侧题型按钮拉开一点距离，不再额外向下偏移 */
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(46, 125, 50, 0.35);
+    transition: box-shadow .15s, transform .12s;
+}
+
+.type-btn, .subtype-btn {
+    padding: 8px 16px;
+    background: #ffffffcc;
+    border: 1px solid #d0d7de;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #444;
+    backdrop-filter: blur(4px);
+    transition: background .15s, color .15s, box-shadow .15s, transform .12s, border-color .15s;
+}
+
+/* 默认 active 底色（会被具体题型覆盖） */
+.type-btn.active, .subtype-btn.active {
+    color: #fff;
+    border-color: transparent;
+}
+
+/* 主容器充满视口剩余高度：100vh 减去标题和工具栏的大致高度 */
+.main-container {
+    background: #ffffffee;
+    border-radius: 16px;
+    padding: 12px 16px 16px;
+    min-height: auto;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+    box-sizing: border-box;
+    height: calc(100vh - 120px); /* 可根据视觉再微调 */
+}
+
+/* 编辑布局：左侧预览 + 右侧编辑区，各自滚动 */
+.editor-layout {
+    display: flex;
+    gap: 16px;
+    height: 100%;
+}
+
+.slide-preview-panel {
+    width: 230px;
+    border-radius: 10px;
+    padding: 8px 6px;
+    background: #f3f4f6;
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.4);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    user-select: none; /* 左侧预览整体不可选中 */
+}
+
+.slide-preview-header {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4b5563;
+    padding: 4px 8px 6px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.slide-preview-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* 由分割线控制间距 */
+    padding: 4px 4px 4px 4px;
+}
+
+/* 预览项上方/下方的可插入分割线 */
+.slide-insert-line {
+    height: 4px;
+    margin: 2px 4px;
+    border-radius: 999px;
+    background: transparent;
+    transition: background 0.12s ease, box-shadow 0.12s ease;
+}
+
+.slide-insert-line.active {
+    background: #2563eb;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.5);
+}
+
+.slide-preview-item {
+    border-radius: 8px;
+    padding: 6px 8px;
+    font-size: 12px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: #ffffff;
+    box-shadow: 0 1px 2px rgba(15,23,42,0.08);
+    transition: background .15s, box-shadow .15s, transform .1s, border-color .15s;
+    user-select: none;
+    margin: 2px 2px; /* 轻微竖直间距，由分割线细化标记 */
+}
+
+.slide-preview-item.dragging {
+    opacity: 0.7;
+}
+
+.slide-preview-item.active {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.35);
+}
+
+.slide-preview-mainline {
+    margin-bottom: 2px;
+    white-space: nowrap;
+}
+
+.slide-preview-mainline .tag-type,
+.slide-preview-mainline .tag-qid,
+.slide-preview-mainline .tag-type-order {
+    margin-right: 4px;
+}
+
+.slide-preview-title {
+    font-size: 11px;
+    color: #4b5563;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 预览项颜色主题，对齐题型色 */
+.preview-sc {
+    border-color: rgba(66, 165, 245, 0.5);
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+}
+
+.preview-mc {
+    border-color: rgba(102, 187, 106, 0.6);
+    background: linear-gradient(135deg, #e8f5e9, #ffffff);
+}
+
+.preview-scimg {
+    border-color: rgba(171, 71, 188, 0.6);
+    background: linear-gradient(135deg, #f3e5f5, #ffffff);
+}
+
+/* 多选题干有图：MCIMG 橙色系预览主题 */
+.preview-mcimg {
+    border-color: rgba(255, 167, 38, 0.7);
+    background: linear-gradient(135deg, #fff3e0, #ffffff);
+}
+
+/* 填空题干无图：FL 红色主题 */
+.preview-fl {
+    border-color: rgba(244, 67, 54, 0.6);
+    background: linear-gradient(135deg, #ffebee, #ffffff);
+}
+
+/* 填空题干有图：FLIMG 黄色主题 */
+.preview-flimg {
+    border-color: rgba(255, 193, 7, 0.7);
+    background: linear-gradient(135deg, #fff9c4, #ffffff);
+}
+
+.preview-other {
+    border-color: rgba(96, 165, 250, 0.4);
+    background: linear-gradient(135deg, #eff6ff, #ffffff);
+}
+
+.editor-main {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.card-placeholder {
+    border: 2px dashed #c8cdd5;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    color: #9ea5b1;
+    font-size: 18px;
+    margin-top: 20px;
+    background: #f9fafb;
+}
+
+/* 题卡基础间距和外观：柔和渐变“纸张”背景 */
+#cardList > .single-card,
+#cardList > .multiple-card,
+#cardList > .fill-card {
+    position: relative;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+    padding: 20px 22px;
+    margin: 14px 0;
+    border: 1px solid #e0d2b5;
+    /* 从纯米黄色改成轻微的米黄-青绿柔和渐变纸张 */
+    background: radial-gradient(circle at top left, #fff9e6 0%, #f5ffe9 55%, #fff7e0 100%);
+    background-size: 140% 140%;
+    animation: card-paper-gradient 24s ease-in-out infinite alternate;
+    overflow: hidden;    /* 确保水印不溢出卡片边界 */
+}
+
+@keyframes card-paper-gradient {
+    0%   { background-position: 0% 0%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 100%; }
+}
+
+/* 如果担心极低性能设备，可以通过在 body 上加 data-flag 来一次性关闭动画，例如：body[data-no-anim="true"] #cardList > .single-card { animation: none; } */
+
+/* 卡片之间的分割线：只作用于后面的那一张卡 */
+#cardList > .single-card + .single-card,
+#cardList > .single-card + .multiple-card,
+#cardList > .single-card + .fill-card,
+#cardList > .multiple-card + .single-card,
+#cardList > .multiple-card + .multiple-card,
+#cardList > .multiple-card + .fill-card,
+#cardList > .fill-card + .single-card,
+#cardList > .fill-card + .multiple-card,
+#cardList > .fill-card + .fill-card {
+    border-top: 2px dashed #e0e0e0;
+    padding-top: 24px;
+    margin-top: 18px;
+}
+
+/* =============== 通用水印基础样式 =============== */
+.single-card::before,
+.multiple-card::before,
+.fill-card::before,
+.material-card.mt::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    font-size: 56px;
+    font-weight: 700;
+    color: rgba(0,0,0,0.03); /* 极淡，具体颜色由题型覆盖 */
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+/* ================= 题型主题色 + 水印 ================= */
+/* 单选题干无图：SC，水印与按钮同为蓝色系 */
+.sc::before {
+    content: 'SC';
+    color: rgba(21, 101, 192, 0.12);
+}
+
+/* 多选题干无图：MC，水印与按钮同为绿色系 */
+.mc::before {
+    content: 'MC';
+    color: rgba(46, 125, 50, 0.12);
+}
+
+/* 单选题干有图：SCIMG，水印与按钮同为紫色系 */
+.scimg::before {
+    content: 'SCIMG';
+    color: rgba(106, 27, 154, 0.12);
+}
+
+/* 多选题干有图：MCIMG 橙色系水印 */
+.mcimg::before {
+    content: 'MCIMG';
+    color: rgba(245, 124, 0, 0.12);
+}
+
+/* 填空题干无图：FL 红色水印 */
+.fl::before {
+    content: 'FL';
+    color: rgba(211, 47, 47, 0.12);
+}
+
+/* 填空题干有图：FLIMG 黄色水印 */
+.flimg::before {
+    content: 'FLIMG';
+    color: rgba(245, 176, 0, 0.12);
+}
+
+/* 材料题容器：DR 水印 */
+.material-card.mt::before {
+    content: 'DR';
+    color: rgba(0, 150, 136, 0.12);
+}
+
+/* 材料题内部子题不再单独显示题型水印，只保留外层 DR 水印 */
+.mt-inner-card .single-card::before,
+.mt-inner-card .multiple-card::before,
+.mt-inner-card .fill-card::before {
+    content: '';
+    opacity: 0;
+}
+
+/* 材料题容器卡片（青绿色主题） */
+.material-card.mt {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 18px 20px 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+.material-card .card-header-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.material-card .card-type-label.mt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    margin-right: 8px;
+    color: #004d40;
+    background: #b2dfdb;
+}
+.material-card .card-title-text {
+    font-weight: 600;
+    color: #00695c;
+}
+.material-card .card-index-line {
+    font-size: 14px;
+    color: #607d8b;
+}
+.material-block .material-title,
+.material-img-block .material-title {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #00695c;
+}
+.material-input {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid #b2dfdb;
+    font-size: 14px;
+    outline: none;
+}
+.material-input:focus {
+    border-color: #26a69a;
+    box-shadow: 0 0 0 1px rgba(38, 166, 154, 0.3);
+}
+.material-img-list {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.material-img-toolbar {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.material-img-add-btn,
+.material-img-list-btn,
+.material-check-btn,
+.mt-inner-btn {
+    border-radius: 999px;
+    font-size: 13px;
+    padding: 4px 14px;
+    border: 1px solid #80cbc4;
+    background: #e0f2f1;
+    color: #00695c;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+    transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+}
+.material-img-dropdown-wrap {
+    position: relative;
+    display: inline-block;
+}
+.material-img-dropdown {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    border-radius: 4px;
+    min-width: 140px;
+    z-index: 10;
+}
+.material-check-line {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: #607d8b;
+}
+.material-inner-toolbar {
+    margin-top: 14px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: rgba(224, 242, 241, 0.9);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.material-inner-toolbar .inner-toolbar-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #004d40;
+    margin-right: 4px;
+}
+.material-inner-list {
+    margin-top: 10px;
+    padding-left: 10px;
+    border-left: 2px dashed rgba(0, 150, 136, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.mt-inner-card {
+    background: #f9fdfc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+.mt-inner-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+.mt-inner-tag {
+    padding: 1px 8px;
+    border-radius: 999px;
+    background: #b2dfdb;
+    color: #004d40;
+    font-size: 12px;
+}
+.mt-inner-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #00695c;
+}
+
+/* 题型小标签外观，沿用颜色体系 */
+.sc .card-type-label,
+.mc .card-type-label,
+.scimg .card-type-label,
+.mcimg .card-type-label,
+.fl .card-type-label,
+.flimg .card-type-label {
+    display: inline-block;
+    padding: 2px 6px;
+    margin-right: 6px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+.sc .card-type-label {
+    color: #0d47a1;
+    background: #bbdefb;
+}
+.mc .card-type-label {
+    color: #1b5e20;
+    background: #c8e6c9;
+}
+.scimg .card-type-label {
+    color: #4a148c;
+    background: #e1bee7;
+}
+.mcimg .card-type-label {
+    color: #e65100;
+    background: #ffe0b2;
+}
+.fl .card-type-label {
+    color: #b71c1c;
+    background: #ffcdd2;
+}
+.flimg .card-type-label {
+    color: #f57f17;
+    background: #fff9c4;
+}
+
+/* 表单控件统一美化 */
+.stem-input,
+.option-input {
+    /* 1. 使用略暖、略暗于卡片背景的浅色，避免纯白刺眼 */
+    background: #f7f1e4;
+    /* 2. 边框颜色改为柔和暖色，而不是偏冷的灰或高对比色 */
+    border: 1px solid #d8c9aa;
+    border-radius: 6px;
+    /* 3. 轻微内阴影，营造纸上轻凹槽的感觉，减弱"发光"感 */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06);
+    color: #444;
+    font-size: 15px;
+}
+
+.stem-input:focus,
+.option-input:focus {
+    outline: none;
+    border-color: #1565c0;
+    /* 叠加一圈主题色的柔和外发光，保持可见的焦点状态 */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.06),
+                0 0 0 2px rgba(21, 101, 192, 0.18);
+}
+
+/* 选项行间距 */
+.options-area > div {
+    margin-bottom: 8px;
+}
+
+/* 统一按钮 modern 风格，颜色由各主题控制 */
+.sc .option-add,
+.sc .option-remove,
+.sc .img-add-btn,
+.sc .img-list-btn,
+.sc .stem-img-add-btn,
+.sc .stem-img-list-btn,
+.mc .option-add,
+.mc .option-remove,
+.mc .img-add-btn,
+.mc .img-list-btn,
+.mc .stem-img-add-btn,
+.mc .stem-img-list-btn,
+.scimg .option-add,
+.scimg .option-remove,
+.scimg .img-add-btn,
+.scimg .img-list-btn,
+.scimg .stem-img-add-btn,
+.scimg .stem-img-list-btn,
+.mcimg .option-add,
+.mcimg .option-remove,
+.mcimg .img-add-btn,
+.mcimg .img-list-btn,
+.mcimg .stem-img-add-btn,
+.mcimg .stem-img-list-btn,
+.fl .blank-sync-btn,
+.fl .blank-check-btn,
+.flimg .blank-sync-btn,
+.flimg .blank-check-btn {
+    border-radius: 999px;
+    font-size: 13px;
+    padding: 4px 14px;
+    line-height: 1.4;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 1px 3px rgba(15,23,42,0.12);
+    cursor: pointer;
+    transition: background .15s, color .15s, box-shadow .15s, transform .1s, border-color .15s;
+}
+
+/* 单选题干无图：SC 蓝色系 */
+.sc .option-add,
+.sc .option-remove,
+.sc .img-add-btn,
+.sc .img-list-btn,
+.sc .stem-img-add-btn,
+.sc .stem-img-list-btn {
+    background: #e3f2fd;
+    color: #1565c0;
+    border: 1px solid #42a5f5;
+}
+.sc .img-add-btn,
+.sc .stem-img-add-btn {
+    border-style: dashed;
+}
+
+/* 多选题干无图：MC 绿色系 */
+.mc {
+    border-color: #66bb6a;
+}
+.mc .option-add,
+.mc .option-remove,
+.mc .img-add-btn,
+.mc .img-list-btn,
+.mc .stem-img-add-btn,
+.mc .stem-img-list-btn {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #66bb6a;
+}
+.mc .img-add-btn,
+.mc .stem-img-add-btn {
+    border-style: dashed;
+}
+
+/* 单选题干有图：SCIMG 紫色系 */
+.scimg {
+    border-color: #ab47bc;
+}
+.scimg .option-add,
+.scimg .option-remove,
+.scimg .img-add-btn,
+.scimg .img-list-btn,
+.scimg .stem-img-add-btn,
+.scimg .stem-img-list-btn {
+    background: #f3e5f5;
+    color: #6a1b9a;
+    border: 1px solid #ab47bc;
+}
+.scimg .img-add-btn,
+.scimg .stem-img-add-btn {
+    border-style: dashed;
+}
+
+/* 多选题干有图：MCIMG 橙色系 */
+.mcimg {
+    border-color: #ffa726;
+}
+.mcimg .option-add,
+.mcimg .option-remove,
+.mcimg .img-add-btn,
+.mcimg .img-list-btn,
+.mcimg .stem-img-add-btn,
+.mcimg .stem-img-list-btn {
+    background: #fff3e0;
+    color: #ef6c00;
+    border: 1px solid #ffa726;
+}
+
+/* 填空题干无图：FL 红色系 */
+.fl {
+    border-color: #ef5350;
+}
+.fl .blank-sync-btn,
+.fl .blank-check-btn,
+.fl .img-add-btn,
+.fl .img-list-btn,
+.fl .stem-img-add-btn,
+.fl .stem-img-list-btn {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef5350;
+}
+.fl .img-add-btn,
+.fl .stem-img-add-btn {
+    border-style: dashed;
+}
+
+/* 填空题干有图：FLIMG 黄色系 */
+.flimg {
+    border-color: #ffca28;
+}
+.flimg .blank-sync-btn,
+.flimg .blank-check-btn,
+.flimg .img-add-btn,
+.flimg .img-list-btn,
+.flimg .stem-img-add-btn,
+.flimg .stem-img-list-btn {
+    background: #fffde7;
+    color: #f57f17;
+    border: 1px solid #ffca28;
+}
+.flimg .img-add-btn,
+.flimg .stem-img-add-btn {
+    border-style: dashed;
+}
+
+/* ========= 顶部题型按钮主题，和卡片按钮颜色对齐 ========= */
+/* 1. 顶部大按钮，根据顺序匹配题型 */
+.type-btn:nth-child(1).active { /* 单选题干无图 → SC 蓝色系 */
+    background: linear-gradient(135deg, #42a5f5, #1976d2);
+    box-shadow: 0 4px 12px rgba(25, 118, 210, 0.4);
+}
+.type-btn:nth-child(2).active { /* 单选题干有图 → SCIMG 紫色系 */
+    background: linear-gradient(135deg, #ab47bc, #8e24aa);
+    box-shadow: 0 4px 12px rgba(142, 36, 170, 0.35);
+}
+.type-btn:nth-child(3).active { /* 多选题干无图 → MC 绿色系 */
+    background: linear-gradient(135deg, #66bb6a, #43a047);
+    box-shadow: 0 4px 12px rgba(67, 160, 71, 0.35);
+}
+.type-btn:nth-child(4).active { /* 多选题干有图 → MCIMG 橙色系 */
+    background: linear-gradient(135deg, #ffa726, #fb8c00);
+    box-shadow: 0 4px 12px rgba(251, 140, 0, 0.45);
+}
+
+/* 其余题型暂时用统一蓝绿色混合高亮（占位，将来可再细分） */
+.type-btn:nth-child(5).active, /* 填空题干无图 → FL 红色系 */
+.type-btn:nth-child(6).active, /* 填空题干有图 → FLIMG 黄色系 */
+#material-btn.active {
+    background: linear-gradient(135deg, #42a5f5, #26a69a);
+    box-shadow: 0 4px 12px rgba(38, 166, 154, 0.35);
+}
+
+/* FL 填空题干无图 - 红色主题 */
+.type-btn:nth-child(5).active {
+    background: linear-gradient(135deg, #ef5350, #e53935);
+    box-shadow: 0 4px 12px rgba(229, 57, 53, 0.4);
+}
+
+/* FLIMG 填空题干有图 - 黄色主题 */
+.type-btn:nth-child(6).active {
+    background: linear-gradient(135deg, #ffca28, #ffa000);
+    box-shadow: 0 4px 12px rgba(255, 160, 0, 0.45);
+}
+
+/* 统一样式的橙色删除按钮 */
+.card-delete-btn {
+    position: absolute;
+    right: 18px;
+    bottom: 14px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    border: none;
+    background: linear-gradient(135deg, #ff9800, #ffb74d);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.22);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+
+.card-delete-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    filter: brightness(0.97);
+}

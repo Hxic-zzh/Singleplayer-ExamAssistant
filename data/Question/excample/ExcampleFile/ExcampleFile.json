@@ -1,0 +1,624 @@
+{
+  "errors": [],
+  "images": [
+    {
+      "filename": "test1.png",
+      "path": "add/test1.png"
+    },
+    {
+      "filename": "test10.jpg",
+      "path": "add/test10.jpg"
+    },
+    {
+      "filename": "test11.jpg",
+      "path": "add/test11.jpg"
+    },
+    {
+      "filename": "test12.jpg",
+      "path": "add/test12.jpg"
+    },
+    {
+      "filename": "test13.jpg",
+      "path": "add/test13.jpg"
+    },
+    {
+      "filename": "test14.jpg",
+      "path": "add/test14.jpg"
+    },
+    {
+      "filename": "test2.webp",
+      "path": "add/test2.webp"
+    },
+    {
+      "filename": "test3.png",
+      "path": "add/test3.png"
+    },
+    {
+      "filename": "test4.webp",
+      "path": "add/test4.webp"
+    },
+    {
+      "filename": "test5.jpg",
+      "path": "add/test5.jpg"
+    },
+    {
+      "filename": "test6.jpg",
+      "path": "add/test6.jpg"
+    },
+    {
+      "filename": "test7.webp",
+      "path": "add/test7.webp"
+    },
+    {
+      "filename": "test8.png",
+      "path": "add/test8.png"
+    },
+    {
+      "filename": "test9.jpg",
+      "path": "add/test9.jpg"
+    }
+  ],
+  "metadata": {
+    "fillBlank": 11,
+    "multipleChoice": 6,
+    "singleChoice": 5,
+    "totalImages": 14,
+    "totalQuestions": 22
+  },
+  "name": "ExcampleFile",
+  "questions": {
+    "fillBlank": [
+      {
+        "id": "1",
+        "type": "FL",
+        "enabled": true,
+        "question": "新文化运动兴起的标志是陈独秀在上海创办(%___%)杂志。",
+        "images": null,
+        "template": "新文化运动兴起的标志是陈独秀在上海创办(%___%)杂志。",
+        "blankCount": 1,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "《新青年》"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "2",
+        "type": "FL",
+        "enabled": true,
+        "question": "中国古代四大发明是(%___%)、(%___%)、(%___%)和(%___%)。",
+        "images": null,
+        "template": "中国古代四大发明是(%___%)、(%___%)、(%___%)和(%___%)。",
+        "blankCount": 4,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "造纸术"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "印刷术"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "指南针"
+            ]
+          },
+          {
+            "blankIndex": 4,
+            "answers": [
+              "火药"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "3",
+        "type": "FL",
+        "enabled": true,
+        "question": "《(%___%)》是曹雪芹创作的古典小说，与《(%___%)》、《(%___%)》、《(%___%)》并称为中国古典四大名著。",
+        "images": [
+          "add/test11.jpg",
+          "add/test12.jpg",
+          "add/test13.jpg",
+          "add/test14.jpg"
+        ],
+        "template": "《(%___%)》是曹雪芹创作的古典小说，与《(%___%)》、《(%___%)》、《(%___%)》并称为中国古典四大名著。",
+        "blankCount": 4,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "红楼梦"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "三国演义"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "水浒传"
+            ]
+          },
+          {
+            "blankIndex": 4,
+            "answers": [
+              "西游记"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "4",
+        "type": "FL",
+        "enabled": true,
+        "question": "人体必需的六大营养素是蛋白质、脂肪、(%___%)、维生素、(%___%)和水。",
+        "images": null,
+        "template": "人体必需的六大营养素是蛋白质、脂肪、(%___%)、维生素、(%___%)和水。",
+        "blankCount": 2,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "碳水化合物"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "矿物质"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "5",
+        "type": "FL",
+        "enabled": true,
+        "question": "世界上面积最大的洋是(%___%)，最长的河流是(%___%)，最高的山峰是(%___%)。",
+        "images": null,
+        "template": "世界上面积最大的洋是(%___%)，最长的河流是(%___%)，最高的山峰是(%___%)。",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "太平洋"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "尼罗河"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "珠穆朗玛峰"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "6",
+        "type": "FL",
+        "enabled": true,
+        "question": "莎士比亚的四大悲剧是《(%___%)》、《(%___%)》、《(%___%)》和《(%___%)》。",
+        "images": null,
+        "template": "莎士比亚的四大悲剧是《(%___%)》、《(%___%)》、《(%___%)》和《(%___%)》。",
+        "blankCount": 4,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "哈姆雷特"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "奥赛罗"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "李尔王"
+            ]
+          },
+          {
+            "blankIndex": 4,
+            "answers": [
+              "麦克白"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "7",
+        "type": "FL",
+        "enabled": true,
+        "question": "化学元素周期表中，原子序数为1的元素是(%___%)，符号为H；原子序数为8的元素是(%___%)，符号为O。",
+        "images": null,
+        "template": "化学元素周期表中，原子序数为1的元素是(%___%)，符号为H；原子序数为8的元素是(%___%)，符号为O。",
+        "blankCount": 2,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "氢"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "氧"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "8",
+        "type": "FL",
+        "enabled": true,
+        "question": "计算机硬件系统主要包括(%___%)、(%___%)、(%___%)、输入设备和输出设备五大部分。",
+        "images": null,
+        "template": "计算机硬件系统主要包括(%___%)、(%___%)、(%___%)、输入设备和输出设备五大部分。",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "运算器"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "控制器"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "存储器"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "9",
+        "type": "FL",
+        "enabled": true,
+        "question": "常见的编程语言包括Java、Python和(%___%)。",
+        "images": null,
+        "template": "常见的编程语言包括Java、Python和(%___%)。",
+        "blankCount": 1,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "C++",
+              "JavaScript",
+              "javascript"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "10",
+        "type": "FL",
+        "enabled": true,
+        "question": "著名的印象派画家代表有(%___%)",
+        "images": null,
+        "template": "著名的印象派画家代表有(%___%)",
+        "blankCount": 1,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "莫奈",
+              "雷诺阿",
+              "德加",
+              "毕沙罗"
+            ]
+          }
+        ],
+        "hasExtra": false,
+        "extraKey": ""
+      },
+      {
+        "id": "11",
+        "type": "FL",
+        "enabled": true,
+        "question": "人体必需的氨基酸有赖氨酸，(%___%)，(%___%)，(%___%)",
+        "images": null,
+        "template": "人体必需的氨基酸有赖氨酸，(%___%)，(%___%)，(%___%)",
+        "blankCount": 3,
+        "answers": [
+          {
+            "blankIndex": 1,
+            "answers": [
+              "(x%x)",
+              "色氨酸",
+              "苯丙氨酸",
+              "蛋氨酸",
+              "苏氨酸",
+              "亮氨酸",
+              "异亮氨酸",
+              "缬氨酸"
+            ]
+          },
+          {
+            "blankIndex": 2,
+            "answers": [
+              "(x%x)",
+              "色氨酸",
+              "苯丙氨酸",
+              "蛋氨酸",
+              "苏氨酸",
+              "亮氨酸",
+              "异亮氨酸",
+              "缬氨酸"
+            ]
+          },
+          {
+            "blankIndex": 3,
+            "answers": [
+              "(x%x)",
+              "色氨酸",
+              "苯丙氨酸",
+              "蛋氨酸",
+              "苏氨酸",
+              "亮氨酸",
+              "异亮氨酸",
+              "缬氨酸"
+            ]
+          }
+        ],
+        "hasExtra": true,
+        "extraKey": "(x%x)"
+      }
+    ],
+    "multipleChoice": [
+      {
+        "id": "1",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些城市是中国的直辖市？（3项正确）",
+        "images": [
+          "add/test4.webp"
+        ],
+        "options": [
+          "北京",
+          "上海",
+          "广州",
+          "天津",
+          "深圳",
+          "重庆"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "D"
+        ]
+      },
+      {
+        "id": "2",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于中国古代四大发明？（4项正确）",
+        "images": [
+          "add/test5.jpg",
+          "add/test6.jpg",
+          "add/test7.webp",
+          "add/test8.png",
+          "add/test9.jpg",
+          "add/test10.jpg"
+        ],
+        "options": [
+          "造纸术",
+          "印刷术",
+          "指南针",
+          "火药",
+          "瓷器",
+          "丝绸"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "id": "3",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于社会主义核心价值观在国家层面的价值目标？（3项正确）",
+        "images": null,
+        "options": [
+          "富强",
+          "民主",
+          "文明",
+          "和谐",
+          "平等",
+          "公正"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "4",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于中国共产党在延安时期开展的重要运动？（4项正确）",
+        "images": null,
+        "options": [
+          "整风运动",
+          "大生产运动",
+          "土地改革运动",
+          "精兵简政运动",
+          "文化大革命",
+          "改革开放"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ]
+      },
+      {
+        "id": "5",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些属于毛泽东思想的活的灵魂？（3项正确）",
+        "images": null,
+        "options": [
+          "实事求是",
+          "群众路线",
+          "独立自主",
+          "武装斗争"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "6",
+        "type": "MC",
+        "enabled": true,
+        "question": "下列哪些会议是中国共产党历史上具有重大转折意义的会议？（5项正确）",
+        "images": null,
+        "options": [
+          "八七会议",
+          "遵义会议",
+          "中共七大",
+          "十一届三中全会",
+          "中共十五大",
+          "中共十九大"
+        ],
+        "answers": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "F"
+        ]
+      }
+    ],
+    "singleChoice": [
+      {
+        "id": "2",
+        "type": "SC",
+        "enabled": true,
+        "question": "新文化运动兴起的标志是陈独秀在上海创办的什么杂志？",
+        "images": [
+          "add/test1.png"
+        ],
+        "options": [
+          "《青年杂志》",
+          "《每周评论》",
+          "《新潮》"
+        ],
+        "answer": "A"
+      },
+      {
+        "id": "3",
+        "type": "SC",
+        "enabled": true,
+        "question": "五四运动的直接导火索是？",
+        "images": null,
+        "options": [
+          "袁世凯复辟帝制",
+          "巴黎和会上中国外交的失败",
+          "北洋政府镇压学生运动"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "4",
+        "type": "SC",
+        "enabled": true,
+        "question": "标志着中国新民主主义革命伟大开端的事件是？",
+        "images": null,
+        "options": [
+          "新文化运动",
+          "五四运动",
+          "中国共产党成立"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "5",
+        "type": "SC",
+        "enabled": true,
+        "question": "中国共产党第一次全国代表大会在哪里召开？",
+        "images": null,
+        "options": [
+          "北京",
+          "上海",
+          "广州",
+          "延安"
+        ],
+        "answer": "B"
+      },
+      {
+        "id": "6",
+        "type": "SC",
+        "enabled": true,
+        "question": "中华人民共和国成立的时间是？",
+        "images": [
+          "add/test2.webp",
+          "add/test3.png"
+        ],
+        "options": [
+          "16664",
+          "18172",
+          "18537",
+          "18162",
+          "18264"
+        ],
+        "answer": "B"
+      }
+    ]
+  },
+  "version": "1.0"
+}

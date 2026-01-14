@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>题目编辑器</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>题目编辑器</h1>    <div class="type-bar">
+        <div class="type-left">
+            <button class="type-btn active" data-type="单选题干无图">单选题干无图</button>
+            <button class="type-btn" data-type="单选题干有图">单选题干有图</button>
+            <button class="type-btn" data-type="多选题干无图">多选题干无图</button>
+            <button class="type-btn" data-type="多选题干有图">多选题干有图</button>
+            <button class="type-btn" data-type="填空题干无图">填空题干无图</button>
+            <button class="type-btn" data-type="填空题干有图">填空题干有图</button>
+            <button class="type-btn" data-type="材料题">材料题</button>
+        </div>
+        <div class="type-right">
+            <button id="addCardBtn" class="add-card-btn">+ 添加题卡</button>
+            <button id="previewBtn" class="add-card-btn" style="background: linear-gradient(135deg, #42a5f5, #1976d2);">👁 预览题库</button>
+            <button id="modifyBtn" class="add-card-btn" style="background: linear-gradient(135deg, #7b1fa2, #4a148c);">✏ 修改题库</button>
+            <button id="exportBtn" class="add-card-btn" style="background: linear-gradient(135deg, #ff9800, #f57c00);">📦 导出ZIP</button>
+        </div>
+    </div>
+    <div class="main-container">
+        <div class="editor-layout">
+            <div class="slide-preview-panel">
+                <div class="slide-preview-header">题目列表</div>
+                <div id="slidePreviewList" class="slide-preview-list"></div>
+            </div>
+            <div class="editor-main">
+                <div id="cardList"></div>
+                <div id="placeholder" class="card-placeholder">请选择题型并点击上方“添加题卡”开始创建题目</div>
+                <div id="materialSubtypePopup" class="material-popup" style="display:none;">
+                    <div style="font-size:16px; margin-bottom:10px;">请选择材料题子类型：</div>
+                    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                        <button class="subtype-btn">单选题干无图</button>
+                        <button class="subtype-btn">单选题干有图</button>
+                        <button class="subtype-btn">多选题干无图</button>
+                        <button class="subtype-btn">多选题干有图</button>
+                        <button class="subtype-btn">填空题干无图</button>
+                        <button class="subtype-btn">填空题干有图</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    <!-- 先引入卡片相关逻辑 -->
+    <script src="cards.js"></script>
+    <!-- 引入卡片增强逻辑 -->
+    <script src="cards-enhancement.js"></script>    <!-- 引入图片删除功能 -->
+    <script src="delete-images.js"></script>
+    <!-- 引入图片下拉菜单渲染器 -->
+    <script src="image-dropdown-renderer.js"></script>
+    <!-- 引入卡片图片按钮处理 -->
+    <script src="card-image-buttons.js"></script>
+    <!-- 动态添加清空图片按钮 -->
+    <script src="add-clear-buttons.js"></script>
+    <!-- 引入导出逻辑 -->
+    <script src="export.js"></script>
+
+    <script>
+        // ===== 左侧预览数据结构 & 渲染 =====
+        const slidePreviewList = document.getElementById('slidePreviewList');
+        const cardListElem = document.getElementById('cardList');
+
+        // 绑定顶部工具栏按钮
+        document.getElementById('previewBtn').onclick = function() {
+            if (window.previewQuestionBank) window.previewQuestionBank();
+        };
+        document.getElementById('exportBtn').onclick = function() {
+            if (window.exportQuestionBank) window.exportQuestionBank();
+        };
+        const modifyBtn = document.getElementById('modifyBtn');
+        if (modifyBtn) {
+            modifyBtn.onclick = function() {
+                if (window.modifyQuestionBank) {
+                    window.modifyQuestionBank();
+                } else {
+                    alert('modifyQuestionBank 尚未加载，稍后重试');
+                }
+            };
+        }
+
+        // 预览/题目数组：用来保持顺序，所有渲染都从这里来
+        const previewItems = []; // { id, cardElem, typeText, typeShort }
+        let nextPreviewId = 1;
+
+        // 全局题号 & 各题型内部计数（渲染时使用）
+        let globalQuestionId = 1;
+        const typeCounters = { SC: 0, MC: 0, SCIMG: 0, MCIMG: 0, FL: 0, FLIMG: 0, DR: 0, OT: 0 };
+
+        function getTypeShortAndLabel(typeText) {
+            switch (typeText) {
+                case '单选题干无图': return { short: 'SC', label: 'SC' };
+                case '多选题干无图': return { short: 'MC', label: 'MC' };
+                case '单选题干有图': return { short: 'SCIMG', label: 'SCIMG' };
+                case '多选题干有图': return { short: 'MCIMG', label: 'MCIMG' };
+                case '填空题干无图': return { short: 'FL', label: 'FL' };
+                case '填空题干有图': return { short: 'FLIMG', label: 'FLIMG' };
+                case '材料题': return { short: 'DR', label: 'DR' };
+                default: return { short: 'OT', label: typeText };
+            }
+        }
+
+        function getTypeTextFromCard(cardElem) {
+            const label = cardElem.querySelector('.card-type-label');
+            if (!label) return '其他';
+            const cls = label.classList;
+            if (cls.contains('scimg')) return '单选题干有图';
+            if (cls.contains('mcimg')) return '多选题干有图';
+            if (cls.contains('mc')) return '多选题干无图';
+            if (cls.contains('sc')) return '单选题干无图';
+            if (cls.contains('flimg')) return '填空题干有图';
+            if (cls.contains('fl')) return '填空题干无图';
+            if (cls.contains('mt')) return '材料题';
+            return '其他';
+        }
+
+        function getPreviewTypeClass(typeText) {
+            if (typeText === '单选题干无图') return 'preview-sc';
+            if (typeText === '多选题干无图') return 'preview-mc';
+            if (typeText === '单选题干有图') return 'preview-scimg';
+            if (typeText === '多选题干有图') return 'preview-mcimg';
+            if (typeText === '填空题干无图') return 'preview-fl';
+            if (typeText === '填空题干有图') return 'preview-flimg';
+            if (typeText === '材料题') return 'preview-mt';
+            return 'preview-other';
+        }
+
+        // 重新渲染左侧预览列表（统一绘制：item + 下方分割线）
+        function renderPreviewList() {
+            slidePreviewList.innerHTML = '';
+            globalQuestionId = 1;
+            typeCounters.SC = typeCounters.MC = typeCounters.SCIMG = typeCounters.MCIMG = typeCounters.FL = typeCounters.FLIMG = typeCounters.DR = typeCounters.OT = 0;
+
+            // 顶部先放一条分割线，对应“插入到第 0 个之前”
+            if (previewItems.length > 0) {
+                const topLine = document.createElement('div');
+                topLine.className = 'slide-insert-line';
+                topLine.dataset.afterIndex = -1; // 表示插在最前面
+                slidePreviewList.appendChild(topLine);
+            }            previewItems.forEach((item, index) => {
+                const typeInfo = getTypeShortAndLabel(item.typeText);
+                if (!typeCounters[typeInfo.short]) typeCounters[typeInfo.short] = 0;
+                typeCounters[typeInfo.short] += 1;
+                const typeOrder = typeCounters[typeInfo.short];
+                
+                // 将全局题号存储到卡片元素的 data 属性中
+                const cardElem = item.cardElem;
+                if (cardElem) {
+                    cardElem.dataset.globalQuestionId = globalQuestionId;
+                    cardElem.dataset.typeOrder = typeOrder;
+                }
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'slide-preview-item ' + getPreviewTypeClass(item.typeText);
+                wrapper.draggable = true;
+                wrapper.dataset.pid = item.id;
+
+                const mainLine = document.createElement('div');
+                mainLine.className = 'slide-preview-mainline';
+                mainLine.innerHTML = `
+                    <span class="tag-type">【${typeInfo.label}】</span>
+                    <span class="tag-qid">【题号:${globalQuestionId}】</span>
+                    <span class="tag-type-order">【题型:${typeOrder}】</span>
+                `;
+                const titleLine = document.createElement('div');
+                titleLine.className = 'slide-preview-title';
+                titleLine.textContent = '（未填写题干）';
+
+                if (item.typeText === '材料题') {
+                    const matInput = cardElem.querySelector('.material-input');
+                    if (matInput) {
+                        const txt = matInput.value.trim();
+                        titleLine.textContent = txt ? txt.slice(0, 18) : '（未填写材料）';
+                    } else {
+                        titleLine.textContent = '（未填写材料）';
+                    }
+                } else {
+                    const stemInput = cardElem.querySelector('.stem-input');
+                    if (stemInput) {
+                        const txt = stemInput.value.trim();
+                        titleLine.textContent = txt ? txt.slice(0, 18) : '（未填写题干）';
+                    }
+                }
+
+                wrapper.appendChild(mainLine);
+                wrapper.appendChild(titleLine);
+
+                // 点击：高亮 + 滚动到卡片
+                wrapper.onclick = function () {
+                    document.querySelectorAll('.slide-preview-item').forEach(it => it.classList.remove('active'));
+                    wrapper.classList.add('active');
+                    cardElem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                };
+
+                // 拖拽事件
+                wrapper.addEventListener('dragstart', function (e) {
+                    draggingPreviewId = item.id;
+                    wrapper.classList.add('dragging');
+                    e.dataTransfer.effectAllowed = 'move';
+                    e.dataTransfer.setData('text/plain', '');
+                });
+                wrapper.addEventListener('dragend', function () {
+                    wrapper.classList.remove('dragging');
+
+                    const line = activeInsertLine;
+                    const draggedId = draggingPreviewId;
+
+                    draggingPreviewId = null;
+                    clearAllInsertLineActive();
+
+                    if (!line || draggedId == null) {
+                        // 没有激活的分割线，不改变顺序，仅简单重绘
+                        renderPreviewList();
+                        return;
+                    }
+
+                    const afterIndex = parseInt(line.dataset.afterIndex, 10);
+                    const fromIndex = previewItems.findIndex(p => p.id === draggedId);
+                    if (fromIndex !== -1) {
+                        const moved = previewItems.splice(fromIndex, 1)[0];
+                        let insertPos = afterIndex + 1;
+                        if (fromIndex < insertPos) insertPos--;
+                        if (insertPos < 0) insertPos = 0;
+                        if (insertPos > previewItems.length) insertPos = previewItems.length;
+                        previewItems.splice(insertPos, 0, moved);
+                    }
+
+                    // 根据新的顺序统一重绘 + 同步右侧 + 刷新序号
+                    renderPreviewList();
+                    syncCardOrderWithPreview();
+                    refreshAllIndexes();
+                });
+
+                slidePreviewList.appendChild(wrapper);
+
+                const line = document.createElement('div');
+                line.className = 'slide-insert-line';
+                line.dataset.afterIndex = index;
+                slidePreviewList.appendChild(line);
+
+                globalQuestionId += 1;
+            });
+        }
+
+        function syncCardOrderWithPreview() {
+            const frag = document.createDocumentFragment();
+            previewItems.forEach(item => {
+                if (item.cardElem && item.cardElem.parentNode === cardListElem) {
+                    frag.appendChild(item.cardElem);
+                }
+            });
+            cardListElem.appendChild(frag);
+            refreshAllIndexes();
+        }
+
+        // 删除/添加后刷新卡片上的题型序号以及左侧【题号】【题型】
+        function refreshAllIndexes() {
+            globalQuestionId = 1;
+            typeCounters.SC = typeCounters.MC = typeCounters.SCIMG = typeCounters.MCIMG = typeCounters.FL = typeCounters.FLIMG = typeCounters.DR = typeCounters.OT = 0;
+            const cards = cardListElem.children;
+            for (let i = 0; i < cards.length; i++) {
+                const card = cards[i];
+                const typeText = getTypeTextFromCard(card);
+                const info = getTypeShortAndLabel(typeText);
+                if (!typeCounters[info.short]) typeCounters[info.short] = 0;
+                typeCounters[info.short] += 1;
+                const typeOrder = typeCounters[info.short];
+                const idxSpan = card.querySelector('.card-index');
+                if (idxSpan) idxSpan.textContent = typeOrder;
+                globalQuestionId += 1;
+            }
+        }
+
+        // 拖拽相关：当前正在拖动的预览 id & 清除所有高亮线
+        let draggingPreviewId = null;
+        let activeInsertLine = null; // 当前激活的插入分割线
+        function clearAllInsertLineActive() {
+            slidePreviewList.querySelectorAll('.slide-insert-line.active').forEach(l => l.classList.remove('active'));
+            activeInsertLine = null;
+        }
+
+        // 分割线高亮与数组重排
+        slidePreviewList.addEventListener('dragover', function (e) {
+            if (!draggingPreviewId) return;
+            const target = e.target;
+            if (!target.classList.contains('slide-insert-line')) return;
+            e.preventDefault();
+            clearAllInsertLineActive();
+            target.classList.add('active');
+            activeInsertLine = target;
+        });
+
+        slidePreviewList.addEventListener('drop', function (e) {
+            if (!draggingPreviewId) return;
+            e.preventDefault();
+        });        // ===== 对外：添加 / 删除 题目时维护 previewItems =====
+        function registerNewCard(cardElem, typeText) {
+            const info = getTypeShortAndLabel(typeText);
+            const pid = nextPreviewId++;
+            previewItems.push({ id: pid, cardElem, typeText, typeShort: info.short });
+            const stemInput = cardElem.querySelector('.stem-input');
+            if (stemInput) {
+                stemInput.addEventListener('input', () => {
+                    renderPreviewList();
+                });
+            }
+            renderPreviewList();
+            syncCardOrderWithPreview();
+            refreshAllIndexes();
+        }
+
+        function unregisterCard(cardElem) {
+            const idx = previewItems.findIndex(p => p.cardElem === cardElem);
+            if (idx !== -1) previewItems.splice(idx, 1);
+            renderPreviewList();
+            syncCardOrderWithPreview();
+            refreshAllIndexes();
+        }
+        
+        // 暴露给外部使用（供 export.js 使用）
+        window.getPreviewItems = function() {
+            return previewItems;
+        };
+        window.getCardOrderedByPreview = function() {
+            return previewItems.map(item => item.cardElem);
+        };
+
+        // ===== 原有题型按钮逻辑 / 添加题卡逻辑 =====
+        let currentType = null;
+        const typeBtns = document.querySelectorAll('.type-btn');
+        typeBtns.forEach(btn => {
+            btn.onclick = function() {
+                typeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentType = btn.textContent;
+                document.getElementById('materialSubtypePopup').style.display = 'none';
+            };
+        });
+        typeBtns[0].click();
+
+        let cardIndex = 1;
+        document.getElementById('addCardBtn').onclick = function() {
+            const placeholder = document.getElementById('placeholder');
+            placeholder.style.display = 'none';
+
+            let newCard = null;
+            if(currentType === '单选题干无图' && window.createSingleChoiceCard) {
+                newCard = window.createSingleChoiceCard(cardIndex++);
+            } else if(currentType === '多选题干无图' && window.createMultipleChoiceCard) {
+                newCard = window.createMultipleChoiceCard(cardIndex++);
+            } else if(currentType === '单选题干有图' && window.createSingleChoiceWithStemImgCard) {
+                newCard = window.createSingleChoiceWithStemImgCard(cardIndex++);
+            } else if(currentType === '多选题干有图' && window.createMultipleChoiceWithStemImgCard) {
+                newCard = window.createMultipleChoiceWithStemImgCard(cardIndex++);
+            } else if(currentType === '填空题干无图' && window.createFillBlankCard) {
+                newCard = window.createFillBlankCard(cardIndex++);
+            } else if(currentType === '填空题干有图' && window.createFillBlankWithStemImgCard) {
+                newCard = window.createFillBlankWithStemImgCard(cardIndex++);
+            } else if(currentType === '材料题' && window.createMaterialCard) {
+                newCard = window.createMaterialCard(cardIndex++);
+            } else {
+                alert('此处将添加“' + currentType + '”题卡（静态预览），请在 cards.js 中实现对应的创建函数。');
+            }
+
+            if (newCard) {
+                cardListElem.appendChild(newCard);
+                registerNewCard(newCard, currentType);
+            }
+        };        // 删除材料子类型弹窗的占位逻辑（保留结构，但不再使用）
+        document.querySelectorAll('#materialSubtypePopup .subtype-btn').forEach(btn => {
+            btn.onclick = function() {
+                document.getElementById('materialSubtypePopup').style.display = 'none';
+            };
+        });
+
+        // 删除事件：移除卡片并从 previewItems 中注销
+        window.addEventListener('card-delete', function (e) {
+            const card = e.detail && e.detail.card;
+            if (!card) return;
+            if (card.parentNode) card.parentNode.removeChild(card);
+            unregisterCard(card);
+        });
+
+        // ========== 导出和预览按钮 ==========
+        document.getElementById('previewBtn').onclick = function() {
+            if (typeof window.previewQuestionBank === 'function') {
+                window.previewQuestionBank();
+            } else {
+                alert('预览功能未加载，请检查export.js是否正确引入');
+            }
+        };
+
+        document.getElementById('exportBtn').onclick = function() {
+            if (typeof window.exportQuestionBank === 'function') {
+                window.exportQuestionBank();
+            } else {
+                alert('导出功能未加载，请检查export.js是否正确引入');
+            }
+        };
+
+        // 在body末尾添加lightbox弹窗结构
+        const lightbox = document.createElement('div');
+        lightbox.id = 'img-lightbox';
+        lightbox.style = 'display:none;position:fixed;z-index:9999;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);align-items:center;justify-content:center;';
+        lightbox.innerHTML = `
+            <div style="position:relative;max-width:90vw;max-height:90vh;">
+                <img id="lightbox-img" src="" style="max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 2px 16px #0008;">
+                <span id="lightbox-close" style="position:absolute;top:-32px;right:0;font-size:32px;color:#fff;cursor:pointer;">×</span>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+        document.getElementById('lightbox-close').onclick = function(){
+            lightbox.style.display = 'none';
+            document.getElementById('lightbox-img').src = '';
+        };
+        lightbox.onclick = function(e){
+            if(e.target === lightbox){
+                lightbox.style.display = 'none';
+                document.getElementById('lightbox-img').src = '';
+            }
+        };
+    </script>
+
+    <!-- 绑定预览和导出按钮 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 预览按钮
+            const previewBtn = document.getElementById('previewBtn');
+            if (previewBtn) {
+                previewBtn.addEventListener('click', function() {
+                    if (typeof previewQuestionBank === 'function') {
+                        previewQuestionBank();
+                    } else {
+                        alert('预览功能未加载');
+                    }
+                });
+            }
+
+            // 导出按钮
+            const exportBtn = document.getElementById('exportBtn');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', function() {
+                    if (typeof exportQuestionBank === 'function') {
+                        exportQuestionBank();
+                    } else {
+                        alert('导出功能未加载');
+                    }
+                });
+            }
+
+            console.log('✓ 预览和导出按钮已绑定');
+        });
+    </script>
+</body>
+</html>
+``` 

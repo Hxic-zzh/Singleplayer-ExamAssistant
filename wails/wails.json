@@ -1,0 +1,5 @@
+{
+  "name": "myapp",
+  "outputfilename": "myapp.exe",
+  "frontend:dev:dir": "frontend"
+}
